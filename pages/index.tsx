@@ -1,5 +1,8 @@
+import Header from "@/src/components/Header";
 import { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import { Button, Container } from "reactstrap";
 
 const Home: NextPage = () => {
     return (
@@ -10,13 +13,22 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <h1>Welcome to <a href="https://nextjs.org">Next.js</a></h1>
+            <Header/>
 
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit, iure similique. Deserunt, consequuntur fuga molestiae facere nihil doloremque ducimus eaque omnis? Doloremque 
-                    quas illum tempore repellat obcaecati distinctio eos repudiandae?
-                </p>
+            <main>
+                <Container className="py-5 text-center">
+                    <h1 className="mt-5 display-1">
+                        VEM COMPRAR, VEM?
+                    </h1>
+                    <p className="my-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam amet laboriosam hic architecto, totam dolorum sed iste, debitis quos, sit reprehenderit minima. Dolorum nihil dolores pariatur quibusdam, debitis praesentium officia!
+                    </p>
+                    <Link href="/products">
+                        <Button color="dark" className="px-4 pb-2">
+                            Vem Danado(a)!!!!
+                        </Button>
+                    </Link>
+                </Container>
             </main>
         </>
     )
