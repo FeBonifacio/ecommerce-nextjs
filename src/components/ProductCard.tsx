@@ -1,10 +1,11 @@
 
-    import Image from "next/image"
-    import Link from "next/link"
-    import React, { useState } from "react"
-    import { Button, Card, CardBody, CardSubtitle } from "reactstrap"
-    import { ProductType } from "../services/products"
-    import SuccessToast from "./SuccessToast"
+import Image from "next/image"
+import Link from "next/link"
+import React, { useState } from "react"
+import { Button, Card, CardBody, CardSubtitle } from "reactstrap"
+import { useCart } from "../hooks/useCart"
+import { ProductType } from "../services/products"
+import SuccessToast from "./SuccessToast"
 
     type ProductCardProps = {
     product: ProductType
@@ -13,6 +14,7 @@
     const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const [toastIsOpen, setToastIsOpen] = useState(false)
     const { id, name, imageUrl, price } = product
+    const { addProduct } = useCart()
 
     return (
         <>
@@ -37,6 +39,7 @@
             className="pb-2"
             block
             onClick={() => {
+                addProduct(product);
                 setToastIsOpen(true)
                 setTimeout(() => setToastIsOpen(false), 1000 * 3)
             }}
